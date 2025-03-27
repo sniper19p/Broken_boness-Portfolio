@@ -518,8 +518,14 @@ footer {
 
 /* Responsive Design */
 /* Web Projects Section */
-.web-projects-title {
+.web-projects-title,
+.developed-games-title,
+.about-title {
+    color: var(--accent);
+    font-size: 2rem;
     margin-top: 4rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
 
 .web-projects-grid {
