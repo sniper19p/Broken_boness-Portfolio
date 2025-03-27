@@ -73,7 +73,8 @@ const webProjects = [
     //      support: "https://discord.gg/xnX7ZeJvYP",
     //      donate: "https://www.buymeacoffee.com/MrDaily"
     //    },
-    status: "Archived (The bot served over 600+ Discord servers before being discontinued due to hosting and operational costs.)",
+    status:
+      "Archived (The bot served over 600+ Discord servers before being discontinued due to hosting and operational costs.)",
   },
 ];
 

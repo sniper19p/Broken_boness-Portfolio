@@ -5,13 +5,17 @@ A modern, responsive portfolio website showcasing my journey as a developer, fro
 ## Portfolio Sections
 
 ### About Me
+
 Detailed introduction highlighting my progression from game development to web technologies, featuring:
+
 - Animated statistics showing total game plays and projects
 - Skill categorization (Game Development, Bot & Web Development)
 - Professional experience with major development teams
 
 ### Roblox Game Development
+
 Showcases my game development projects including:
+
 - The Never Ending Obby (Released)
 - Build Battle: Alpha (In Development)
 - Ice Cream Tycoon (Released)
@@ -20,8 +24,11 @@ Showcases my game development projects including:
 - The Graveyard: Beta (On Hold)
 
 ### Professional Affiliations
+
 Highlights work with major development teams:
+
 1. **Silverline Entertainment**
+
    - 6,000+ community members
    - Build to Survive Disasters (10M+ plays)
    - New build-focused game in development
@@ -32,8 +39,11 @@ Highlights work with major development teams:
    - Bug fixes and performance optimization
 
 ### Web & Bot Development
+
 Features technical projects including:
+
 1. **Personal Portfolio**
+
    - Modern responsive design
    - Interactive particle effects
    - Dynamic content loading
@@ -46,8 +56,9 @@ Features technical projects including:
 ## Technical Implementation
 
 ### Core Technologies
+
 - **HTML5**: Semantic structure and accessibility
-- **CSS3**: 
+- **CSS3**:
   - Custom properties for theming
   - Flexbox/Grid for layouts
   - Responsive design
@@ -60,13 +71,16 @@ Features technical projects including:
   - Particle effects
 
 ### Features
+
 1. **Visual Elements**
+
    - Interactive particle background
    - Smooth animations
    - Consistent dark theme
    - Accent color highlights
 
 2. **User Experience**
+
    - Responsive on all devices
    - Smooth navigation
    - Dynamic content loading
@@ -96,19 +110,23 @@ Features technical projects including:
 ## Customization
 
 ### Theme
+
 Modify colors in `style.css`:
+
 ```css
 :root {
-    --bg-primary: #121212;
-    --bg-secondary: #1e1e1e;
-    --text-primary: #ffffff;
-    --text-secondary: #b3b3b3;
-    --accent: #64ffda;
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent: #64ffda;
 }
 ```
 
 ### Content
+
 Update project data in `script.js`:
+
 - `games`: Roblox games
 - `webProjects`: Web development projects
 - `affiliations`: Professional teams
