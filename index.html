@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- stats - count particles -->
+    <div class="count-particles">
+        <span class="js-count-particles"></span> 
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <a href="#">
+                    <img src="logo.png" alt="Broken_Boness Logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="home">
+        <div class="container">
+            <h1>Hi, I'm <span class="name-with-logo"><span class="highlight">Broken_Boness</span><img src="logo.png" alt="Logo" class="inline-logo"></span></h1>
+            <p class="title">Roblox Developer</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span id="total-plays" class="stat-number">0</span>
+                    <span class="stat-label">Total Plays</span>
+                </div>
+                <div class="stat-item">
+                    <span id="total-games" class="stat-number">0</span>
+                    <span class="stat-label">Games Worked On</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.roblox.com/users/781272290/profile" target="_blank" class="roblox-profile">View Roblox Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm a versatile developer with expertise in both Roblox game development and Discord bot creation. As a self-taught programmer, I've mastered Lua through YouTube and hands-on experience, while also developing proficiency in Discord.js and bot automation.</p>
+                
+                <p>Currently working with prestigious teams like Silverline Entertainment and The Mining Company, I've contributed to Roblox games with over 50M+ combined plays. Additionally, I develop custom Discord bots and web applications, creating engaging interactive experiences for communities.</p>
+                
+                <div class="skills">
+                    <h3>Game Development</h3>
+                    <div class="skill-tags">
+                        <span>Lua</span>
+                        <span>Roblox Studio</span>
+                        <span>Game Design</span>
+                        <span>UI/UX</span>
+                        <span>Performance Optimization</span>
+                    </div>
+                    
+                    <h3>Bot & Web Development</h3>
+                    <div class="skill-tags">
+                        <span>Discord.js</span>
+                        <span>Node.js</span>
+                        <span>JavaScript</span>
+                        <span>Bot Automation</span>
+                        <span>API Integration</span>
+                        <span>Database Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Developed Games</h2>
+            <div class="projects-grid">
+                <!-- Games will be populated by JavaScript -->
+            </div>
+            
+            <h2 class="affiliations-title">Professional Affiliations</h2>
+            <div class="affiliations-grid">
+                <!-- Affiliations will be populated by JavaScript -->
+            </div>
+
+            <h2 class="web-projects-title">Web Development & Discord Bots</h2>
+            <div class="web-projects-grid">
+                <!-- Web projects will be populated by JavaScript -->
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>Feel free to reach out for collaborations or game development opportunities</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-discord"></i>
+                        <span>Discord: broken_boness</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: sniper19p19@gmail.com                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Broken_Boness. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- stats.js lib -->
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+    
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+</body>
+</html>
