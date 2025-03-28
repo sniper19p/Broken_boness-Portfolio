@@ -1,0 +1,59 @@
+{
+  "affiliations": [
+    {
+      "name": "Nourity Corporation",
+      "role": "Developer",
+      "description": "Worked on updates & fixed game-breaking bugs for Chocolate Bar Tycoon after the previous dev left. Also helped with other studio projects. The game achieved over 520,000 visits and 2,000 likes during its run.",
+      "memberCount": "5,600+",
+      "games": [
+        {
+          "title": "Chocolate Bar Tycoon",
+          "contribution": "Lua Developer",
+          "description": "Chocolate Bar Tycoon is one of the few experiences on the platform that brings players together and explores the world of CHOCOLATE. Become the richest player in the game and maximize your factory to the fullest potential.",
+          "status": "Closed",
+          "playLink": "https://www.roblox.com/games/12011842289/NEW-Chocolate-Bar-Tycoon"
+        }
+      ],
+      "duration": "Jul 2023 - Sep 2023"
+    },
+    {
+      "name": "Silverline Entertainment",
+      "role": "Developer",
+      "description": "A thriving Roblox development group owned by DutchDeveloper. Joined the team post-launch of Build to Survive Disasters to implement new features and gather community feedback. Currently collaborating on an exciting new build-focused game.",
+      "memberCount": "6,000+",
+      "games": [
+        {
+          "title": "Build to Survive Disasters",
+          "description": "Build your base to protect yourself from monsters that spawn every few minutes. Monsters can use their special powers to hunt you down, so you must fight them off!",
+          "status": "Released",
+          "playLink": "https://www.roblox.com/games/13914298804/Build-to-Survive-Disasters",
+          "plays": "10M+",
+          "contribution": "Bug fixes"
+        },
+        {
+          "title": "Upcoming Game",
+          "description": "A new game in development without monsters.",
+          "status": "In Development",
+          "playLink": "#",
+          "contribution": "Core gameplay systems"
+        }
+      ]
+    },
+    {
+      "name": "The Mining Company",
+      "role": "Developer",
+      "description": "A major Roblox development group led by DutchDeveloper with a massive community. Joined the team to help maintain and optimize Mining INC: Remastered, focusing on bug fixes and performance improvements based on player feedback.",
+      "memberCount": "104,000+",
+      "games": [
+        {
+          "title": "Mining INC: Remastered",
+          "description": "Welcome to Mining Inc Remastered! an exciting team-based game set in the depths of the mine.",
+          "status": "Released",
+          "playLink": "https://www.roblox.com/games/3168928542/Mining-INC-Remastered",
+          "plays": "41M+",
+          "contribution": "Bug fixes and optimizations"
+        }
+      ]
+    }
+  ]
+}

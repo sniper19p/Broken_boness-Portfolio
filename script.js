@@ -1,337 +1,273 @@
-// Roblox games data
-const games = [
-  {
-    title: "The Never Ending Obby!",
-    description:
-      "An obby game featuring endlessly and randomly generated stages, ensuring a unique experience each time players join. One of my first games to ever come out.",
-    status: "Completed",
-    playLink: "https://www.roblox.com/games/6296129446/The-Never-Ending-Obby",
-  },
-  {
-    title: "Build Battle: Alpha",
-    description:
-      "A competitive building game where players are tasked with constructing themed builds within a time limit, followed by a voting phase to determine the best creation.",
-    status: "In Development",
-    playLink: "https://www.roblox.com/games/15433046686/Build-Battle-Alpha",
-  },
-  {
-    title: "The Graveyard: Beta",
-    description:
-      "An immersive experience set in a mysterious graveyard, challenging players to explore and uncover hidden secrets.",
-    status: "On Hold",
-    playLink: "https://www.roblox.com/games/12252350815/The-Graveyard-beta3",
-  },
-  {
-    title: "Ice Cream Tycoon",
-    description:
-      "A tycoon game where players build and manage their own ice cream business, striving to expand and dominate the market.",
-    status: "Completed",
-    playLink: "https://www.roblox.com/games/10914161045/NEW-Ice-Cream-Tycoon",
-  },
-  {
-    title: "Business Empire Tycoon",
-    description:
-      "Players start from scratch to build a vast business empire, making strategic decisions to outmaneuver competitors and maximize profits.",
-    status: "Completed",
-    playLink: "https://www.roblox.com/games/12318737316/Business-Empire-Tycoon",
-  },
-  {
-    title: "Social Hangout",
-    description:
-      "A social platform designed for players to meet, chat, and engage in various mini-games, fostering a vibrant community atmosphere.",
-    status: "On Hold",
-    playLink: "https://www.roblox.com/games/9322776451/Social-hangout-UPDATE",
-  },
-];
+// Function to populate games section
+async function populateGames() {
+  try {
+    const response = await fetch('data/games.json');
+    const data = await response.json();
+    const projectsGrid = document.querySelector('.projects-grid');
+    projectsGrid.innerHTML = ''; // Clear existing content
 
-const webProjects = [
-  {
-    name: "Personal Portfolio",
-    role: "Full Stack Developer",
-    description:
-      "A modern, responsive portfolio website showcasing my development work across different platforms.",
-    technologies: ["HTML5", "CSS3", "JavaScript", "Particles.js"],
-    contribution: "Designed and developed the entire website from scratch",
-    projectLink: "https://github.com/sniper19p/Broken_boness-Portfolio",
-    githubLink: "https://github.com/sniper19p/Broken_boness-Portfolio",
-  },
-  {
-    name: "Mr.Daily Bot",
-    role: "Bot Developer",
-    description:
-      "A feature-rich Discord bot that delivered daily facts, jokes, and historical events to servers.mUsers could easily manage content delivery with slash commands and customize their daily information feed.",
-    technologies: [
-      "Discord.js",
-      "Node.js",
-      "MongoDB",
-      "REST APIs",
-      "Slash Commands",
-    ],
-    contribution:
-      "Developed the entire bot from concept to deployment, including command system, database integration, and automated content delivery.",
-    //  links: {
-    //      support: "https://discord.gg/xnX7ZeJvYP",
-    //      donate: "https://www.buymeacoffee.com/MrDaily"
-    //    },
-    status:
-      "Archived (The bot served over 600+ Discord servers before being discontinued due to hosting and operational costs.)",
-  },
-];
+    data.games.forEach((game) => {
+      const gameCard = document.createElement('div');
+      gameCard.className = 'project-card';
 
-const affiliations = [
-  {
-    name: "Silverline Entertainment",
-    role: "Developer",
-    description:
-      "A thriving Roblox development group owned by DutchDeveloper. Joined the team post-launch of Build to Survive Disasters to implement new features and gather community feedback. Currently collaborating on an exciting new build-focused game.",
-    memberCount: "6,000+",
-    games: [
-      {
-        title: "Build to Survive Disasters",
-        description:
-          "Build your base to protect yourself from monsters that spawn every few minutes. Monsters can use their special powers to hunt you down, so you must fight them off!",
-        status: "Released",
-        playLink:
-          "https://www.roblox.com/games/13914298804/Build-to-Survive-Disasters",
-        plays: "10M+",
-        contribution: "Bug fixes",
-      },
-      {
-        title: "Upcoming Game",
-        description: "A new game in development without monsters.",
-        status: "In Development",
-        playLink: "#",
-        contribution: "Core gameplay systems",
-      },
-    ],
-  },
-  {
-    name: "The Mining Company",
-    role: "Developer",
-    description:
-      "A major Roblox development group led by DutchDeveloper with a massive community. Joined the team to help maintain and optimize Mining INC: Remastered, focusing on bug fixes and performance improvements based on player feedback.",
-    memberCount: "104,000+",
-    games: [
-      {
-        title: "Mining INC: Remastered",
-        description:
-          "Welcome to Mining Inc Remastered! an exciting team-based game set in the depths of the mine.",
-        status: "Released",
-        playLink:
-          "https://www.roblox.com/games/3168928542/Mining-INC-Remastered",
-        plays: "41M+",
-        contribution: "Bug fixes and optimizations",
-      },
-    ],
-  },
-];
+      gameCard.innerHTML = `
+        <h3>${game.title}</h3>
+        <p>${game.description}</p>
+        <div class="status-play-container">
+          <div class="game-status ${game.status.toLowerCase().replace(' ', '-')}">
+            ${game.status}
+          </div>
+          <a href="${game.playLink}" target="_blank" class="play-now">Play Now</a>
+        </div>
+      `;
 
-// Populate games section
-function populateGames() {
-  const projectsGrid = document.querySelector(".projects-grid");
-  projectsGrid.innerHTML = ""; // Clear existing content
+      projectsGrid.appendChild(gameCard);
+    });
+  } catch (error) {
+    console.error('Error loading games:', error);
+  }
+}
 
-  games.forEach((game) => {
-    const gameCard = document.createElement("div");
-    gameCard.className = "project-card";
+// Function to populate web projects section
+async function populateWebProjects() {
+  try {
+    const response = await fetch('data/web-projects.json');
+    const data = await response.json();
+    const webProjectsGrid = document.querySelector('.web-projects-grid');
+    webProjectsGrid.innerHTML = ''; // Clear existing content
 
-    gameCard.innerHTML = `
-            <h3>${game.title}</h3>
+    data.projects.forEach((project) => {
+      const projectCard = document.createElement('div');
+      projectCard.className = 'project-card';
+
+      projectCard.innerHTML = `
+        <h3>${project.name}</h3>
+        <div class="role">${project.role}</div>
+        <p>${project.description}</p>
+        <div class="technologies">
+          ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+        </div>
+        <p class="contribution">${project.contribution}</p>
+        ${project.projectLink ? `<a href="${project.projectLink}" target="_blank" class="project-link">View Project</a>` : ''}
+        ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="github-link">GitHub</a>` : ''}
+        ${project.status ? `<div class="project-status">${project.status}</div>` : ''}
+      `;
+
+      webProjectsGrid.appendChild(projectCard);
+    });
+  } catch (error) {
+    console.error('Error loading web projects:', error);
+  }
+}
+
+// Function to populate affiliations section
+async function populateAffiliations() {
+  try {
+    const response = await fetch('data/affiliations.json');
+    const data = await response.json();
+    const affiliationsGrid = document.querySelector('.affiliations-grid');
+    affiliationsGrid.innerHTML = ''; // Clear existing content
+
+    data.affiliations.forEach((affiliation) => {
+      const affiliationCard = document.createElement('div');
+      affiliationCard.className = 'affiliation-card';
+
+      let gamesHtml = '';
+      affiliation.games.forEach((game) => {
+        gamesHtml += `
+          <div class="group-game">
+            <h4>${game.title}</h4>
             <p>${game.description}</p>
-            <div class="status-play-container">
-                <div class="game-status ${game.status
-                  .toLowerCase()
-                  .replace(" ", "-")}">
-                    ${game.status}
-                </div>
-                <a href="${
-                  game.playLink
-                }" target="_blank" class="play-now">Play Now</a>
+            <div class="game-details">
+              <div class="game-status ${game.status.toLowerCase().replace(' ', '-')}">
+                ${game.status}
+              </div>
+              ${game.plays ? `<div class="play-count">${game.plays} Plays</div>` : ''}
             </div>
+            ${game.playLink !== '#' ? `<a href="${game.playLink}" target="_blank" class="play-link">Play Now</a>` : ''}
+            <p class="contribution">Contribution: ${game.contribution}</p>
+          </div>
         `;
+      });
 
-    projectsGrid.appendChild(gameCard);
-  });
-}
+      affiliationCard.innerHTML = `
+        <h3>${affiliation.name}</h3>
+        <div class="role">${affiliation.role}</div>
+        <p>${affiliation.description}</p>
+        <div class="member-count">Members: ${affiliation.memberCount}</div>
+        ${affiliation.duration ? `<div class="duration">${affiliation.duration}</div>` : ''}
+        <div class="group-games">
+          <h4>Games:</h4>
+          ${gamesHtml}
+        </div>
+      `;
 
-// Populate affiliations section
-function populateAffiliations() {
-  const affiliationsGrid = document.querySelector(".affiliations-grid");
-  affiliationsGrid.innerHTML = ""; // Clear existing content
-
-  affiliations.forEach((affiliation) => {
-    const affiliationCard = document.createElement("div");
-    affiliationCard.className = "affiliation-card";
-
-    let gamesHtml = "";
-    affiliation.games.forEach((game) => {
-      gamesHtml += `
-                <div class="group-game">
-                    <h4>${game.title}</h4>
-                    <p>${game.description}</p>
-                    <div class="game-details">
-                        <div class="game-status ${game.status
-                          .toLowerCase()
-                          .replace(" ", "-")}">
-                            ${game.status}
-                        </div>
-                        ${
-                          game.plays
-                            ? `<div class="play-count">${game.plays} Plays</div>`
-                            : ""
-                        }
-                    </div>
-                    <p class="contribution">My Role: ${game.contribution}</p>
-                    ${
-                      game.playLink !== "#"
-                        ? `<a href="${game.playLink}" target="_blank" class="play-now">Play Now</a>`
-                        : ""
-                    }
-                </div>
-            `;
+      affiliationsGrid.appendChild(affiliationCard);
     });
-
-    affiliationCard.innerHTML = `
-            <h3>${affiliation.name}</h3>
-            <p class="role">${affiliation.role}</p>
-            <p class="member-count">${affiliation.memberCount} Members</p>
-            <p>${affiliation.description}</p>
-            <div class="group-games">
-                <h4 class="games-header">Games</h4>
-                ${gamesHtml}
-            </div>
-        `;
-
-    affiliationsGrid.appendChild(affiliationCard);
-  });
+  } catch (error) {
+    console.error('Error loading affiliations:', error);
+  }
 }
 
-// Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});
 
-// Animate counting up
-function animateValue(element, start, end, duration) {
-  const range = end - start;
-  const increment = range / (duration / 16); // 60fps
-  let current = start;
-  const isPlays = element.id === "total-plays";
+// Function to populate commissions
+async function populateCommissions() {
+  try {
+    const response = await fetch('data/commissions.json');
+    const data = await response.json();
+    const container = document.getElementById('commissions-container');
+    container.innerHTML = ''; // Clear existing content
 
-  const animate = () => {
-    current += increment;
-    if (
-      (increment >= 0 && current >= end) ||
-      (increment < 0 && current <= end)
-    ) {
-      current = end;
-      element.textContent = isPlays
-        ? Math.round(current) + "M+"
-        : Math.round(current);
-      return;
-    }
-    element.textContent = isPlays
-      ? Math.round(current) + "M+"
-      : Math.round(current);
-    requestAnimationFrame(animate);
-  };
+    data.categories.forEach(category => {
+      // Create a category section wrapper
+      const categorySection = document.createElement('div');
+      categorySection.className = 'commission-category';
 
-  animate();
-}
+      // Add category header section
+      const categoryHeader = document.createElement('div');
+      categoryHeader.className = 'category-header';
 
-// Calculate and display stats
-function updateStats() {
-  let totalPlays = 0;
-  let totalGames = 0;
+      // Add category title
+      const categoryTitle = document.createElement('h3');
+      categoryTitle.className = 'service-category';
+      categoryTitle.textContent = category.name;
+      categoryHeader.appendChild(categoryTitle);
 
-  // Add plays from personal games
-  games.forEach((game) => {
-    if (game.playLink && game.playLink !== "#") {
-      totalGames++;
-    }
-  });
-
-  // Add plays from group games
-  affiliations.forEach((affiliation) => {
-    affiliation.games.forEach((game) => {
-      if (game.plays) {
-        const plays = parseInt(game.plays.replace(/[^0-9]/g, ""));
-        totalPlays += plays;
+      // Add category note if present
+      if (category.note) {
+        const note = document.createElement('p');
+        note.className = 'service-note';
+        note.textContent = category.note;
+        categoryHeader.appendChild(note);
       }
-      if (game.playLink && game.playLink !== "#") {
+
+      categorySection.appendChild(categoryHeader);
+
+      // Add grid for this category's packages
+      const grid = document.createElement('div');
+      grid.className = 'projects-grid';
+
+      // Add packages
+      category.packages.forEach(pkg => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        card.innerHTML = `
+          <div class="commission-header">
+            <h3>${pkg.title}</h3>
+            <div class="price">${pkg.price}</div>
+          </div>
+          <div class="commission-content">
+            <ul class="commission-features">
+              ${pkg.features.map(feature => 
+                `<li><i class="fas fa-check"></i> ${feature}</li>`
+              ).join('')}
+            </ul>
+            <div class="delivery-time">${pkg.deliveryTime}</div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      categorySection.appendChild(grid);
+      container.appendChild(categorySection);
+    });
+  } catch (error) {
+    console.error('Error loading commissions:', error);
+  }
+}
+
+// Function to update stats
+async function updateStats() {
+  try {
+    let totalPlays = 0;
+    let totalGames = 0;
+
+    // Get games data
+    const gamesResponse = await fetch('data/games.json');
+    const gamesData = await gamesResponse.json();
+    gamesData.games.forEach(game => {
+      if (game.playLink && game.playLink !== '#') {
         totalGames++;
       }
     });
-  });
 
-  // Animate the counters
-  const playsElement = document.getElementById("total-plays");
-  const gamesElement = document.getElementById("total-games");
-
-  animateValue(playsElement, 0, totalPlays, 2000); // 2 seconds duration
-  animateValue(gamesElement, 0, totalGames, 1500); // 1.5 seconds duration
-}
-
-// Populate web projects section
-function populateWebProjects() {
-  const webProjectsGrid = document.querySelector(".web-projects-grid");
-  webProjectsGrid.innerHTML = ""; // Clear existing content
-
-  webProjects.forEach((project) => {
-    const projectCard = document.createElement("div");
-    projectCard.className = "affiliation-card";
-
-    let techStack = "";
-    project.technologies.forEach((tech) => {
-      techStack += `<span class="tech-tag">${tech}</span>`;
+    // Get affiliations data
+    const affiliationsResponse = await fetch('data/affiliations.json');
+    const affiliationsData = await affiliationsResponse.json();
+    affiliationsData.affiliations.forEach(affiliation => {
+      affiliation.games.forEach(game => {
+        if (game.plays) {
+          const plays = parseInt(game.plays.replace(/[^0-9]/g, ''));
+          totalPlays += plays;
+        }
+        if (game.playLink && game.playLink !== '#') {
+          totalGames++;
+        }
+      });
     });
 
-    let links = "";
-    if (project.projectLink && project.projectLink !== "#") {
-      links += `<a href="${project.projectLink}" target="_blank" class="project-link">View Project</a>`;
-    }
-    if (project.githubLink && project.githubLink !== "#") {
-      links += `<a href="${project.githubLink}" target="_blank" class="github-link">View Code</a>`;
-    }
-    if (project.links) {
-      if (project.links.support) {
-        links += `<a href="${project.links.support}" target="_blank" class="support-link">Support Server</a>`;
-      }
-      if (project.links.donate) {
-        links += `<a href="${project.links.donate}" target="_blank" class="donate-link">Support Project</a>`;
-      }
+    // Animate the counters
+    const playsElement = document.getElementById('total-plays');
+    const gamesElement = document.getElementById('total-games');
+
+    if (playsElement) {
+      let current = 0;
+      const step = () => {
+        current += Math.ceil(totalPlays / 100);
+        if (current >= totalPlays) {
+          current = totalPlays;
+          playsElement.textContent = current + 'M+';
+          return;
+        }
+        playsElement.textContent = current + 'M+';
+        requestAnimationFrame(step);
+      };
+      step();
     }
 
-    projectCard.innerHTML = `
-            <h3>${project.name}</h3>
-            <p class="role">${project.role}</p>
-            <p>${project.description}</p>
-            <div class="tech-stack">
-                <h4>Technologies</h4>
-                <div class="tech-tags">${techStack}</div>
-            </div>
-            <p class="contribution">My Role: ${project.contribution}</p>
-            ${
-              project.status
-                ? `<div class="project-status">${project.status}</div>`
-                : ""
-            }
-            ${links ? `<div class="project-links">${links}</div>` : ""}
-        `;
-
-    webProjectsGrid.appendChild(projectCard);
-  });
+    if (gamesElement) {
+      let current = 0;
+      const step = () => {
+        current += 1;
+        if (current >= totalGames) {
+          current = totalGames;
+          gamesElement.textContent = current;
+          return;
+        }
+        gamesElement.textContent = current;
+        requestAnimationFrame(step);
+      };
+      step();
+    }
+  } catch (error) {
+    console.error('Error updating stats:', error);
+  }
 }
 
 // Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  populateGames();
-  populateAffiliations();
-  populateWebProjects();
-  updateStats();
+document.addEventListener("DOMContentLoaded", async () => {
+  // Initialize typing animation
+  new Typed('.typed-text', {
+    strings: ['Broken_Boness'],
+    typeSpeed: 100,
+    backSpeed: 50,
+    loop: false,
+    showCursor: true,
+    cursorChar: '|'
+  });
+
+  // Initialize data
+  try {
+    await Promise.all([
+      populateGames(),
+      populateWebProjects(),
+      populateAffiliations(),
+      populateCommissions()
+    ]);
+    updateStats();
+  } catch (error) {
+    console.error('Error initializing data:', error);
+  }
 });

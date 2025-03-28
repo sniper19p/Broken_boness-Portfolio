@@ -1,0 +1,21 @@
+{
+  "projects": [
+    {
+      "name": "Personal Portfolio",
+      "role": "Full Stack Developer",
+      "description": "A modern, responsive portfolio website showcasing my development work across different platforms.",
+      "technologies": ["HTML5", "CSS3", "JavaScript", "Particles.js"],
+      "contribution": "Designed and developed the entire website from scratch",
+      "projectLink": "https://github.com/sniper19p/Broken_boness-Portfolio",
+      "githubLink": "https://github.com/sniper19p/Broken_boness-Portfolio"
+    },
+    {
+      "name": "Mr.Daily Bot",
+      "role": "Bot Developer",
+      "description": "A feature-rich Discord bot that delivered daily facts, jokes, and historical events to servers. Users could easily manage content delivery with slash commands and customize their daily information feed.",
+      "technologies": ["Discord.js", "Node.js", "MongoDB", "REST APIs", "Slash Commands"],
+      "contribution": "Developed the entire bot from concept to deployment, including command system, database integration, and automated content delivery.",
+      "status": "Archived (The bot served over 600+ Discord servers before being discontinued due to hosting and operational costs.)"
+    }
+  ]
+}
