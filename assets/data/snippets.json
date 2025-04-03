@@ -1,0 +1,39 @@
+{
+    "snippets": [
+        {
+            "id": "1",
+            "title": "Advanced NPC AI Behavior",
+            "language": "lua",
+            "description": "Script to create NPCs with patrol and chase behaviors",
+            "code": "-- NPC AI Behavior\nlocal npc = script.Parent\nlocal humanoid = npc:WaitForChild('Humanoid')\nlocal patrolPoints = workspace:WaitForChild('PatrolPoints'):GetChildren()\nlocal chaseDistance = 50\nlocal patrolSpeed = 2\nlocal chaseSpeed = 4\n\nlocal function patrol()\n    for _, point in ipairs(patrolPoints) do\n        humanoid:MoveTo(point.Position)\n        wait(2)\n    end\nend\n\nlocal function chasePlayer()\n    local players = game:GetService('Players'):GetPlayers()\n    for _, player in ipairs(players) do\n        if player.Character and (player.Character.PrimaryPart.Position - npc.PrimaryPart.Position).Magnitude < chaseDistance then\n            humanoid:MoveTo(player.Character.PrimaryPart.Position)\n            humanoid.WalkSpeed = chaseSpeed\n            wait(1)\n        end\n    end\nend\n\nwhile true do\n    patrol()\n    chasePlayer()\n    wait(1)\nend"
+        },
+        {
+            "id": "2",
+            "title": "Custom Damage System",
+            "language": "lua",
+            "description": "Implement a custom damage system with damage types and resistances",
+            "code": "-- Custom Damage System\nlocal function applyDamage(character, amount, damageType)\n    local humanoid = character:FindFirstChild('Humanoid')\n    if humanoid then\n        local resistance = character:FindFirstChild(damageType .. 'Resistance')\n        if resistance then\n            amount = amount * (1 - resistance.Value)\n        end\n        humanoid:TakeDamage(amount)\n    end\nend\n\n-- Example usage\n-- applyDamage(targetCharacter, 50, 'Fire')"
+        },
+        {
+            "id": "3",
+            "title": "Advanced Player Data System",
+            "language": "lua",
+            "description": "Save and load complex player data with multiple attributes using DataStore",
+            "code": "-- Advanced Player Data System\nlocal DataStoreService = game:GetService('DataStoreService')\nlocal playerDataStore = DataStoreService:GetDataStore('PlayerData')\n\ngame.Players.PlayerAdded:Connect(function(player)\n    local data\n    local success, error = pcall(function()\n        data = playerDataStore:GetAsync(player.UserId)\n    end)\n    if success and data then\n        -- Apply loaded data to player\n        local health = data.health or 100\n        local level = data.level or 1\n        local inventory = data.inventory or {}\n        player.Character:WaitForChild('Humanoid').Health = health\n        -- Other data applications (e.g., inventory, stats)\n    else\n        -- Initialize new player data\n        playerDataStore:SetAsync(player.UserId, {health = 100, level = 1, inventory = {}})\n    end\nend)\n\ngame.Players.PlayerRemoving:Connect(function(player)\n    local data = {health = player.Character.Humanoid.Health, level = 1, inventory = {}} -- Example data\n    local success, error = pcall(function()\n        playerDataStore:SetAsync(player.UserId, data)\n    end)\n    if not success then\n        warn('Error saving data: ' .. error)\n    end\nend)"
+        },
+        {
+            "id": "4",
+            "title": "Server-Side Data Storage",
+            "language": "lua",
+            "description": "Store and retrieve player data on the server",
+            "code": "-- Server-Side Data Storage\nlocal dataStoreService = game:GetService('DataStoreService')\nlocal playerDataStore = dataStoreService:GetDataStore('PlayerData')\n\ngame.Players.PlayerAdded:Connect(function(player)\n    local data = playerDataStore:GetAsync(player.UserId)\n    if data then\n        -- Apply data to player (e.g., set health, inventory)\n    end\nend)\n\ngame.Players.PlayerRemoving:Connect(function(player)\n    local data = {} -- Collect data from player (e.g., health, inventory)\n    playerDataStore:SetAsync(player.UserId, data)\nend)"
+        },
+        {
+            "id": "5",
+            "title": "Advanced Particle Effects",
+            "language": "lua",
+            "description": "Create complex particle effects using ParticleEmitter",
+            "code": "-- Advanced Particle Effects\nlocal particleEmitter = Instance.new('ParticleEmitter')\nparticleEmitter.Parent = workspace\nparticleEmitter.Texture = 'rbxassetid://1234567890'\nparticleEmitter.Size = NumberSequence.new(0.5, 1)\nparticleEmitter.Lifetime = NumberRange.new(1, 2)\nparticleEmitter.Rate = 50\nparticleEmitter.VelocityInheritance = 0.5\nparticleEmitter.Speed = NumberRange.new(10, 20)\nparticleEmitter.Acceleration = Vector3.new(0, -9.81, 0)\nparticleEmitter.EmissionDirection = Enum.NormalId.Top\nparticleEmitter.SpreadAngle = Vector2.new(30, 30)\nparticleEmitter.Enabled = true"
+        }
+    ]
+}

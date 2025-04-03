@@ -1,0 +1,122 @@
+.snippets-container {
+    position: relative;
+    z-index: 1;
+    padding-top: calc(var(--nav-height) + 2rem);
+    color: #ccd6f6;
+}
+
+.snippets-container h1 {
+    color: #64ffda;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.snippet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.snippet-card {
+    background: rgba(17, 34, 64, 0.8);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    position: relative;
+}
+
+.snippet-card:hover {
+    transform: translateY(-5px);
+    border-color: #64ffda;
+    box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.snippet-card h3 {
+    color: #64ffda;
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    font-weight: 600;
+}
+
+.snippet-card .description {
+    color: #8892b0;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+pre {
+    margin: 0;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #112240 !important;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Custom scrollbar for code blocks */
+pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: #0a192f;
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #64ffda;
+    border-radius: 4px;
+    opacity: 0.5;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+}
+
+/* Add copy button */
+.copy-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: 1px solid #64ffda;
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: #64ffda;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 0.9rem;
+}
+
+.copy-button:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .snippets-container h1 {
+        font-size: 2rem;
+    }
+
+    .snippet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .snippet-card {
+        margin: 0 1rem;
+    }
+}

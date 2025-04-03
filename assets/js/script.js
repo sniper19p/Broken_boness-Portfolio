@@ -1,7 +1,7 @@
 // Function to populate games section
 async function populateGames() {
   try {
-    const response = await fetch('data/games.json');
+    const response = await fetch('assets/data/games.json');
     const data = await response.json();
     const projectsGrid = document.querySelector('.projects-grid');
     projectsGrid.innerHTML = ''; // Clear existing content
@@ -31,7 +31,7 @@ async function populateGames() {
 // Function to populate web projects section
 async function populateWebProjects() {
   try {
-    const response = await fetch('data/web-projects.json');
+    const response = await fetch('assets/data/web-projects.json');
     const data = await response.json();
     const webProjectsGrid = document.querySelector('.web-projects-grid');
     webProjectsGrid.innerHTML = ''; // Clear existing content
@@ -63,7 +63,7 @@ async function populateWebProjects() {
 // Function to populate affiliations section
 async function populateAffiliations() {
   try {
-    const response = await fetch('data/affiliations.json');
+    const response = await fetch('assets/data/affiliations.json');
     const data = await response.json();
     const affiliationsGrid = document.querySelector('.affiliations-grid');
     affiliationsGrid.innerHTML = ''; // Clear existing content
@@ -110,73 +110,6 @@ async function populateAffiliations() {
 }
 
 
-// Function to populate commissions
-async function populateCommissions() {
-  try {
-    const response = await fetch('data/commissions.json');
-    const data = await response.json();
-    const container = document.getElementById('commissions-container');
-    container.innerHTML = ''; // Clear existing content
-
-    data.categories.forEach(category => {
-      // Create a category section wrapper
-      const categorySection = document.createElement('div');
-      categorySection.className = 'commission-category';
-
-      // Add category header section
-      const categoryHeader = document.createElement('div');
-      categoryHeader.className = 'category-header';
-
-      // Add category title
-      const categoryTitle = document.createElement('h3');
-      categoryTitle.className = 'service-category';
-      categoryTitle.textContent = category.name;
-      categoryHeader.appendChild(categoryTitle);
-
-      // Add category note if present
-      if (category.note) {
-        const note = document.createElement('p');
-        note.className = 'service-note';
-        note.textContent = category.note;
-        categoryHeader.appendChild(note);
-      }
-
-      categorySection.appendChild(categoryHeader);
-
-      // Add grid for this category's packages
-      const grid = document.createElement('div');
-      grid.className = 'projects-grid';
-
-      // Add packages
-      category.packages.forEach(pkg => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-
-        card.innerHTML = `
-          <div class="commission-header">
-            <h3>${pkg.title}</h3>
-            <div class="price">${pkg.price}</div>
-          </div>
-          <div class="commission-content">
-            <ul class="commission-features">
-              ${pkg.features.map(feature => 
-                `<li><i class="fas fa-check"></i> ${feature}</li>`
-              ).join('')}
-            </ul>
-            <div class="delivery-time">${pkg.deliveryTime}</div>
-          </div>
-        `;
-
-        grid.appendChild(card);
-      });
-
-      categorySection.appendChild(grid);
-      container.appendChild(categorySection);
-    });
-  } catch (error) {
-    console.error('Error loading commissions:', error);
-  }
-}
 
 // Function to update stats
 async function updateStats() {
@@ -248,6 +181,7 @@ async function updateStats() {
 
 // Initialize
 document.addEventListener("DOMContentLoaded", async () => {
+
   // Hamburger menu functionality
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
@@ -281,8 +215,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await Promise.all([
       populateGames(),
       populateWebProjects(),
-      populateAffiliations(),
-      populateCommissions()
+      populateAffiliations()
     ]);
     updateStats();
   } catch (error) {
