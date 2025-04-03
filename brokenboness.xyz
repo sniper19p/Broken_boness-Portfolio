@@ -1,0 +1,17 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name brokenboness.xyz www.brokenboness.xyz;
+
+    root /mnt/var/www/clickhaven;
+    index index.html;
+
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    # Remove .html extension
+    if ($request_uri ~ ^/(.*)\.html$) {
+        return 301 /$1;
+    }
+}
