@@ -118,7 +118,7 @@ async function updateStats() {
     let totalGames = 0;
 
     // Get games data
-    const gamesResponse = await fetch('data/games.json');
+    const gamesResponse = await fetch('assets/data/games.json');
     const gamesData = await gamesResponse.json();
     gamesData.games.forEach(game => {
       if (game.playLink && game.playLink !== '#') {
@@ -127,7 +127,7 @@ async function updateStats() {
     });
 
     // Get affiliations data
-    const affiliationsResponse = await fetch('data/affiliations.json');
+    const affiliationsResponse = await fetch('assets/data/affiliations.json');
     const affiliationsData = await affiliationsResponse.json();
     affiliationsData.affiliations.forEach(affiliation => {
       affiliation.games.forEach(game => {
