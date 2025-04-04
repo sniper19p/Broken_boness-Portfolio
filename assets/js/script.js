@@ -135,7 +135,15 @@ async function updateStats() {
     affiliationsData.affiliations.forEach(affiliation => {
       affiliation.games.forEach(game => {
         if (game.plays) {
-          const plays = parseInt(game.plays.replace(/[^0-9]/g, ''));
+          const playsStr = game.plays.toLowerCase();
+          let plays = 0;
+          if (playsStr.includes('k')) {
+            plays = parseFloat(playsStr) * 1000;
+          } else if (playsStr.includes('m')) {
+            plays = parseFloat(playsStr) * 1000000;
+          } else {
+            plays = parseInt(playsStr.replace(/[^0-9]/g, ''));
+          }
           totalPlays += plays;
         }
         if (game.playLink && game.playLink !== '#') {
@@ -154,10 +162,28 @@ async function updateStats() {
         current += Math.ceil(totalPlays / 100);
         if (current >= totalPlays) {
           current = totalPlays;
-          playsElement.textContent = current + 'M+';
+          // Format the number with K, M, etc.
+          let displayText = '';
+          if (current >= 1000000) {
+            displayText = (current / 1000000).toFixed(1) + 'M+';
+          } else if (current >= 1000) {
+            displayText = (current / 1000).toFixed(1) + 'K+';
+          } else {
+            displayText = current.toString();
+          }
+          playsElement.textContent = displayText;
           return;
         }
-        playsElement.textContent = current + 'M+';
+        // Format the number with K, M, etc.
+        let displayText = '';
+        if (current >= 1000000) {
+          displayText = (current / 1000000).toFixed(1) + 'M+';
+        } else if (current >= 1000) {
+          displayText = (current / 1000).toFixed(1) + 'K+';
+        } else {
+          displayText = current.toString();
+        }
+        playsElement.textContent = displayText;
         requestAnimationFrame(step);
       };
       step();
