@@ -1075,3 +1075,51 @@ footer {
     justify-content: center;
   }
 }
+
+/* Game card styles */
+.status-play-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.play-count {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(100, 255, 218, 0.1);
+  border-radius: 4px;
+}
+
+.roblox-profile {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: rgba(100, 255, 218, 0.1);
+  color: var(--accent);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.roblox-profile:hover {
+  background-color: rgba(100, 255, 218, 0.2);
+  transform: translateY(-2px);
+}
+
+.project-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.group-game .project-links {
+  margin-top: 1rem;
+}

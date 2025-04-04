@@ -17,7 +17,10 @@ async function populateGames() {
           <div class="game-status ${game.status.toLowerCase().replace(' ', '-')}">
             ${game.status}
           </div>
-          <a href="${game.playLink}" target="_blank" class="play-now">Play Now</a>
+          ${game.plays ? `<div class="play-count">${game.plays}</div>` : ''}
+        </div>
+        <div class="project-links">
+          <a href="${game.playLink}" target="_blank" class="roblox-profile">Play Now</a>
         </div>
       `;
 
@@ -82,9 +85,9 @@ async function populateAffiliations() {
               <div class="game-status ${game.status.toLowerCase().replace(' ', '-')}">
                 ${game.status}
               </div>
-              ${game.plays ? `<div class="play-count">${game.plays} Plays</div>` : ''}
+              ${game.plays ? `<div class="play-count">${game.plays}</div>` : ''}
             </div>
-            ${game.playLink !== '#' ? `<a href="${game.playLink}" target="_blank" class="play-link">Play Now</a>` : ''}
+            ${game.playLink !== '#' ? `<div class="project-links"><a href="${game.playLink}" target="_blank" class="roblox-profile">Play Now</a></div>` : ''}
             <p class="contribution">Contribution: ${game.contribution}</p>
           </div>
         `;
